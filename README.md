@@ -6,4 +6,4 @@ The Ruby on Rails app can be run by
 1. Doing bundle install inside QuizApp.
 2. Run rails server to deploy app at http://localhost:3000/ .
 
-All the required features have been implemented and can be viewd at different stages of the game and through exploration.
+All the required features have been implemented and can be viewed at different stages of the game and through exploration.
