@@ -1,0 +1,2 @@
+class Subgenre < ApplicationRecord
+end

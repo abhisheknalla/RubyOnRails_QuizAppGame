@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login</title>
+<meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="mbx9p0kG7SWpCrXFNA2kLdz7ppxSjxyz8N/sl+CZ/rJzduN+G0ofGo9w0cM5pIbWXdVnY/It8/gRiEevjgakQQ==" />
+
+<link rel="stylesheet" media="all" href="/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="reload" />
+<link rel="stylesheet" media="all" href="/assets/application.self-f0d704deea029cf000697e2c0181ec173a1b474645466ed843eb5ee7bb215794.css?body=1" data-turbolinks-track="reload" />
+<script src="/assets/rails-ujs.self-817d9a8cb641f7125060cb18fefada3f35339170767c4e003105f92d4c204e39.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/turbolinks.self-1d1fddf91adc38ac2045c51f0a3e05ca97d07d24d15a4dcbf705009106489e69.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/action_cable.self-69fddfcddf4fdef9828648f9330d6ce108b93b82b0b8d3affffc59a114853451.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/cable.self-8484513823f404ed0c0f039f75243bfdede7af7919dda65f2e66391252443ce9.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/application.self-eba3cb53a585a0960ade5a8cb94253892706bb20e3f12097a13463b1f12a4528.js?body=1" data-turbolinks-track="reload"></script>
+</head>
+
+<body>
+<!--<h1>Sessions#new</h1>-->
+<!--<p>Find me in app/views/sessions/new.html.erb</p>-->
+<h1>Log in</h1>
+
+<div class="row">
+<div class="col-md-6 col-md-offset-3">
+<form action="/login" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="wERKgjcRljXzwAvRNkHD2R/YMBuWc7eMmuOwQSbTQYpRPmC9Y6dFcueQjOmjNlHou91D880+hXHB3rMXPeJpcA==" />
+
+<label for="session_email">Email</label>
+<input class="form-control" type="email" name="session[email]" id="session_email" /><br/>
+
+<label for="session_password">Password</label>
+<input class="form-control" type="password" name="session[password]" id="session_password" />
+<input type="submit" name="commit" value="Log in" class="btn btn-primary" data-disable-with="Log in" />			</form>
+<p>New user? <a href="/signup">Sign up now!</a></p>
+</div>									</div>
+
+</body>
+</html>
+

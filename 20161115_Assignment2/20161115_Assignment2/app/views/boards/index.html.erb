@@ -1,0 +1,69 @@
+<p id="notice"><%= notice %></p>
+<% title  "Scoreboard" %>
+<h1 style="color:blue">Scoreboard</h1>
+
+<p style="text-align:center;color:yellow"><font size="4px">Order of completion:</font></p>
+<table style="margin-left: auto; margin-right: auto;">
+  <thead>
+    <tr>
+      <th>   Name </th>
+      <th>  Score </th>
+      <th>  Quiz </th>
+      <th colspan="2">  Action </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @boards.each do |board| %>
+      <tr>
+        <td><font size="3"><%= board.name %></font></td>
+        <td><font size="3"><%= board.score %></font></td>
+        <td><font size="3"><%= board.quizname %></font></td>
+        <td><font size="3"><%= link_to 'Show', board %></font></td>
+	<% if  current_user.admin? %>
+        <td><%= link_to 'Edit', edit_board_path(board) %></td>
+        <td><%= link_to 'Destroy', board, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	<% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<p style="text-align:center;color:yellow"><font size="4px">Leaderboard:</font></p>
+<table style="margin-left: auto; margin-right: auto;">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Score</th>
+      <th>Quiz</th>
+      <th colspan="2">Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @boards.sort_by{|b| b.score }.reverse.each do |b| %>
+      <tr>
+        <td><font size="4"><%= b.name %></font></td>
+        <td><font size="4"><%= b.score %></font></td>
+        <td><font size="4"><%= b.quizname %></font></td>
+        <td><font size="3"><%= link_to 'Show', b %></font></td>
+	<% if  current_user.admin? %>
+        <td><%= link_to 'Edit', edit_board_path(b) %></td>
+        <td><%= link_to 'Destroy', b, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	<% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<div class="row">
+<div class="col-md-6 col-md-offset-5">
+
+<% if current_user.admin? %>
+<%= link_to 'Create New Record', new_board_path, class: "btn btn-primary session_button" %>
+<% end %>
+
+</div>
+</div>

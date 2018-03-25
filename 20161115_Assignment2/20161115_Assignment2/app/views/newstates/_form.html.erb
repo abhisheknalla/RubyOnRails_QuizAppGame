@@ -1,0 +1,37 @@
+<%= form_with(model: newstate, local: true) do |form| %>
+  <% if newstate.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(newstate.errors.count, "error") %> prohibited this newstate from being saved:</h2>
+
+      <ul>
+      <% newstate.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :quizname %>
+    <%= form.text_area :quizname, id: :newstate_quizname %>
+  </div>
+
+  <div class="field">
+    <%= form.label :questionid %>
+    <%= form.number_field :questionid, id: :newstate_questionid %>
+  </div>
+
+  <div class="field">
+    <%= form.label :score %>
+    <%= form.number_field :score, id: :newstate_score %>
+  </div>
+
+  <div class="field">
+    <%= form.label :userid %>
+    <%= form.number_field :userid, id: :newstate_userid %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

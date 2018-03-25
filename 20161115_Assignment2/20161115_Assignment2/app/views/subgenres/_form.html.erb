@@ -1,0 +1,34 @@
+<head>
+<% title "New Subgenre?" %>
+<link rel = "stylesheet"
+    type = "text/css"
+           href = "../../assets/stylesheets/custom.scss" />
+	           </head>
+<%= form_with(model: subgenre, local: true) do |form| %>
+  <% if subgenre.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(subgenre.errors.count, "error") %> prohibited this subgenre from being saved:</h2>
+
+      <ul>
+      <% subgenre.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field"><font size="5px">
+    <%= form.label :name %>
+    <%= form.text_area :name, id: :subgenre_name, class:"form-control" %></font>
+  </div>
+
+  <div class="field"><font size="5px">
+    <%= form.label :type_of_Quiz %>
+    <%= form.text_area :questions, id: :subgenre_questions, class:"form-control" %>
+  </div>
+
+
+  <div class="actions"><font size="5px">
+    <%= form.submit %></font>
+  </div>
+<% end %>

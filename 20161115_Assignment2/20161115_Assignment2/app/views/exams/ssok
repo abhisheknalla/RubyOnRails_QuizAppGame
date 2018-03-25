@@ -1,0 +1,57 @@
+<p id="notice"><%= notice %></p>
+<% title "QUIZ" %>
+<br>
+<br>
+<p>
+<% if @ok=='Cricket' %>
+<h1><%= @exam.id-7 %></h1>
+<% end %>
+<% if @ok=='Football' %>
+<h1><%= @exam.id-17 %></h1>
+<% end %>
+</p>
+
+<%= form_for @exam do |f| %>
+	<% f.submit 'A'  %>
+	<% f.submit 'B'  %>
+	<% f.submit 'C'  %>
+	<% f.submit 'D'  %>
+<% end %>
+
+
+<p>
+  <strong>Question:</strong>
+  <%= @exam.question %>
+</p>
+
+<p>
+  <strong>Option1:</strong>
+  <%= @exam.option1 %>
+</p>
+
+<p>
+  <strong>Option2:</strong>
+  <%= @exam.option2 %>
+</p>
+
+<p>
+  <strong>Option3:</strong>
+  <%= @exam.option3 %>
+</p>
+
+<p>
+  <strong>Option4:</strong>
+  <%= @exam.option4 %>
+</p>
+
+<p>
+  <strong>Correct ans:</strong>
+  <%= @exam.correct_ans %>
+</p>
+<% if current_user.admin? %>
+<%= link_to 'Back', exams_path %> |
+<% end %>
+<% begin %>
+<%= link_to('Next',{:controller => 'exams',:action => 'show', :id => @exam.id, :random => @ok })%>
+<% end %>
+

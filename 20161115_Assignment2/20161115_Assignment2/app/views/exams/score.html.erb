@@ -1,0 +1,16 @@
+<% title "ScoreBoard" %>
+<p id="notice"><%= notice %></p>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<h1 style="color:orange"> Your Score is <%= session[:var1] %> out of 10 </h1>
+
+<h1 style="color:violet">Thank You</h1>
+
+<!--<links to users, other quizzes ,scoreboard>-->
+<%=link_to('See Scoreboard',{:controller => 'boards', :action => 'new', :random => session[:var1], :random2 => @ok}, class: "btn btn-primary session_button") %>
+

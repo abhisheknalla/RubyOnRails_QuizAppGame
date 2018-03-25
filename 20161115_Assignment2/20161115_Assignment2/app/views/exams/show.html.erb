@@ -1,0 +1,95 @@
+<head>
+<style>
+#plz{
+	display:none;
+	margin-left: 10px;
+}
+a:hover+#plz{
+display:block;
+}
+</style>
+</head>
+
+<p id="notice"><%= notice %></p>
+<% title "QUIZ" %>
+<br>
+<br>
+<p>
+<% if @ok=='Cricket' %>
+<h1><%= @exam.id-7 %></h1>
+<% end %>
+<% if @ok=='Football' %>
+<h1><%= @exam.id-17 %></h1>
+<% end %>
+<% if @ok=='Sci-Fi' %>
+<h1><%= @exam.id-27 %></h1>
+<% end %>
+<% if @ok=='Horror' %>
+<h1><%= @exam.id-37 %></h1>
+<% end %>
+</p>
+<p style="color:green">Your Score: <%= @gg %></p>
+
+<%= link_to('Quit',{:controller => 'newstates', :action => 'new' , :id => @exam.id, :random => @ok }, :style => "postion: absolute; right=0px;", class:"btn btn-secondary session_button")%>
+<p style="text-align:center">
+  <strong>Question:</strong>
+  <%= @exam.question %>
+  
+</p>
+<p style="text-align:center">
+  <strong>Option1:</strong>
+  <%= @exam.option1 %>
+ <%= check_box_tag("opt1","1",false) %>
+  </p>
+
+<p style="text-align:center">
+  <strong>Option2:</strong>
+  <%= @exam.option2 %>
+ <%= check_box_tag("opt2","2",false) %>
+  </p>
+
+<p style="text-align:center">
+  <strong>Option3:</strong>
+  <%= @exam.option3 %>
+ <%= check_box_tag("opt3","3",false) %>
+</p>
+
+<p style="text-align:center">
+  <strong>Option4:</strong>
+  <%= @exam.option4 %>
+ <%= check_box_tag("opt4","4",false) %>
+</p>
+
+
+
+<%= form_tag url_for(:controller => 'exams',:action => 'edit'), :method => 'get' do %>
+      <%= hidden_field_tag :hi , @ok %>
+      <%= hidden_field_tag :hi2 , @exam.id %>
+      <%= hidden_field_tag :ans , @exam.correct_ans %>
+      <%= text_field_tag :search   %>
+          <%= submit_tag "Submit", :name => nil %> 
+	    <% end %>
+
+
+
+
+
+<div class="col-md-4 text-center" >
+<% if current_user.admin? %>
+<%= link_to 'Back', exams_path %> |
+<% end %>
+<% begin %>
+<%= link_to('Next',{:controller => 'exams', :action => 'show' , :id => @exam.id, :random => @ok }, :style => "postion: absolute; right= 0;")%>
+<% end %>
+
+</div>
+
+
+<a><img src='http://vignette1.wikia.nocookie.net/planetside2/images/4/4d/Scythe_Side_View_Icon.png/revision/latest?cb=20130426065845'></a>
+<div id="plz">
+  <strong>Correct Answer:</strong>
+  <%= @exam.correct_ans %>
+</div>
+
+
+

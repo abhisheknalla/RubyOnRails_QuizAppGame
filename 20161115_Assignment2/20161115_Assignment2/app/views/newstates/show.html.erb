@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Quizname:</strong>
+  <%= @newstate.quizname %>
+</p>
+
+<p>
+  <strong>Questionid:</strong>
+  <%= @newstate.questionid %>
+</p>
+
+<p>
+  <strong>Score:</strong>
+  <%= @newstate.score %>
+</p>
+
+<p>
+  <strong>Userid:</strong>
+  <%= @newstate.userid %>
+</p>
+<p><%= link_to('Continue',{ :controller => 'exams', :action => 'show' , :id => @newstate.questionid , :random => @newstate.quizname,:score => @newstate.score, :uni => 365 }, class: "btn btn-primary session_button;")%>
+</p>
+<br>
+<% if current_user.admin? %>
+<%= link_to 'Edit', edit_newstate_path(@newstate) %> |
+<% end %>
+<%= link_to 'Back', newstates_path %>

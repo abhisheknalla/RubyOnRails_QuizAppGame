@@ -1,0 +1,22 @@
+<!--<h1>Sessions#new</h1>-->
+<!--<p>Find me in app/views/sessions/new.html.erb</p>-->
+<% provide(:title, "Log in") %>
+<h1>Log in</h1>
+
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<%= form_for(:session, url: login_path) do |f| %>
+<p><b><font size="4px">Email</font></b></p>
+			<%= f.email_field :email, class: 'form-control' %><br/>
+
+<p><b><font size="4px">Password</font></b></p>
+			<%= f.password_field :password, class: 'form-control' %>
+			 <%= f.label :remember_me, class: "checkbox inline" do %>
+									                                                                  <%= f.check_box :remember_me %>
+														                                                                                                           <span>Remember me on this computer</span>
+																			                                                                                                                                          <% end %>
+
+								
+							<font size="4px">	<%= f.submit "Log in", class: "btn btn-primary" %>	</font>		<% end %>
+										     	<font size="3px">	<p>New user? <%= link_to "Sign up now!", signup_path %></p></font>
+     	</div>									</div>

@@ -1,0 +1,54 @@
+<head>
+<% title "New Subgenre?" %>
+<link rel = "stylesheet"
+    type = "text/css"
+               href = "../../assets/stylesheets/custom.scss" />
+	                          </head>
+
+<%= form_with(model: exam, local: true) do |form| %>
+  <% if exam.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(exam.errors.count, "error") %> prohibited this exam from being saved:</h2>
+
+      <ul>
+      <% exam.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :question %>
+    <%= form.text_area :question, id: :exam_question, class:"form-control" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :option1 %>
+    <%= form.text_area :option1, id: :exam_option1, class:"form-control" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :option2 %>
+    <%= form.text_area :option2, id: :exam_option2, class:"form-control" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :option3 %>
+    <%= form.text_area :option3, id: :exam_option3, class:"form-control" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :option4 %>
+    <%= form.text_area :option4, id: :exam_option4, class:"form-control" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :correct_ans %>
+    <%= form.text_area :correct_ans, id: :exam_correct_ans, class:"form-control" %>
+  </div>
+
+  <div class="actions"><font size="4px">
+    <%= form.submit %></font>
+  </div>
+<% end %>

@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+<% title "States" %>
+<h1>Newstates</h1>
+
+<table style="margin-left: auto; margin-right: auto">
+  <thead>
+    <tr>
+      <th><font size="4">Quizname</font></th>
+      <th><font size="4">Questionid</font></th>
+      <th><font size="4">Score</font></th>
+      <th><font size="4">Userid</font></th>
+      <th colspan="2"><font size="3">Action</font></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @newstates.each do |newstate| %>
+      <tr>
+    <% if newstate.userid == current_user.id %>
+        <td style="color:blue"><font size="4"><%= newstate.quizname %></font></td>
+        <td style="color:red"><font size="3"><%= newstate.questionid %></font></td>
+        <td style="color:green"><font size="3"><%= newstate.score %></font></td>
+        <td style="color:red"><font szie="3"><%= newstate.userid %></font></td>
+        <td><%= link_to 'Show', newstate %></td>
+	<% if current_user.admin? %>
+        <td><%= link_to 'Edit', edit_newstate_path(newstate) %></td>
+      <% end %>
+        <td><%= link_to 'Destroy', newstate, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+	</tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<div class="row">
+<div class="col-md-6 col-md-offset-5">
+<%= link_to 'New State', new_newstate_path, class: "btn btn-primary session_button" %>
+</div>
+</div>

@@ -1,0 +1,53 @@
+<p id="notice"><%= notice %></p>
+<% title "Subgenres" %>
+<h1>Subgenres</h1>
+
+<table style="margin-left: auto;
+margin-right: auto;">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type of Quiz</th>
+      <th colspan="2">Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @subgenres.each do |subgenre| %>
+      <tr>
+      <% if @ok==1 %>
+      <% if subgenre.name == 'Cricket'|| subgenre.name == 'Football' || subgenre.name == 'Hockey' %>
+        <td><font size="5"><%= subgenre.name %></font></td>
+        <td style="color:yellow"><font size="4"><%= subgenre.questions %></font></td>
+        <td><font size="5"><%= link_to 'Show', subgenre %></font>
+  <% if current_user.admin? %>
+  | <%= link_to 'Edit', edit_subgenre_path(subgenre) %>
+  | <%= link_to 'Destroy', subgenre, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	<% end %>
+	<% end %>
+	<% else %>
+	<% if subgenre.name == 'Sci-Fi' || subgenre.name == 'Horror'|| subgenre.name == 'Romantic'|| subgenre.name == 'Action' %>
+        <td><font size="5"><%= subgenre.name %></font></td>
+        <td style="color:yellow"><font size="4"><%= subgenre.questions %></font></td>
+        <td><font size="5"><%= link_to 'Show', subgenre %></font>
+  <% if current_user.admin? %>
+  | <%= link_to 'Edit', edit_subgenre_path(subgenre) %>
+  | <%= link_to 'Destroy', subgenre, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	<% end %>
+	<% end %>
+	<% end %>	
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<div class="row">
+<div class="col-md-6 col-md-offset-5">
+
+<% if current_user.admin? %>
+<p id="1"><%= link_to 'New Subgenre', new_subgenre_path, class: "btn btn-primary session_button" %>
+<% end %>
+</div>
+</div>
+

@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+<head>
+<% title "List of Quizzes" %>
+<link rel = "stylesheet"
+    type = "text/css"
+       href = "../../assets/stylesheets/quizzes.scss" />
+        </head>
+<h1>Quizzes</h1>
+
+<table style="margin-left: auto;
+margin-right: auto;">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Genre</th>
+      <th colspan="2">Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @quizzes.each do |quiz| %>
+      <tr>
+      <td><font size="4"><%= quiz.name %></font></td>
+<td style="color:red;"><font size="4"><%= quiz.genre %></font></td>
+        <td><font size="4"><%= link_to 'Show', quiz %></font>
+<% if current_user.admin? %>
+        | <%= link_to 'Edit', edit_quiz_path(quiz) %>
+        | <%= link_to 'Destroy', quiz, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	<% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<div class="row">
+<div class="col-md-6 col-md-offset-5">
+
+<% if current_user.admin? %>
+<p id="1"><%= link_to 'Create New Quiz', new_quiz_path, class: "btn btn-primary session_button" %></p>
+<% end %>
+</div>
+</div>

@@ -1,0 +1,38 @@
+<head>
+<style>
+#plz{
+	display:none;
+	margin-left: 10px;
+}
+a:hover+#plz{
+display:block;
+}
+</style>
+</head>
+
+<p id="notice"><%= notice %></p>
+<% title "QUIZ" %>
+<br>
+<br>
+<p style="color:green">Your Score: <%= @gg %></p>
+
+
+<div class="col-md-4 text-center" >
+<% if current_user.admin? %>
+<%= link_to 'Back', exams_path %> |
+<% end %>
+<% begin %>
+<%= link_to('Next',{:controller => 'exams', :action => 'show' , :id => @lol2, :random => @ok, :cor => @lol }, style: "postion: absolute; right: 0;")%>
+<% end %>
+
+</div>
+
+
+<a><img src='http://vignette1.wikia.nocookie.net/planetside2/images/4/4d/Scythe_Side_View_Icon.png/revision/latest?cb=20130426065845'></a>
+<div id="plz">
+  <strong>Correct Answer:</strong>
+  <%= @lol3 %>
+</div>
+
+
+

@@ -1,0 +1,53 @@
+<% title "#{params[:random]}" %>
+<p id="notice"><%= notice %></p>
+<% if(params.has_key?(:random)) %>
+<h1>		<%= "#{params[:random]}" %> </h1>
+		<% end %>
+
+<table style="margin-left: auto; margin-right: auto">
+  <thead>
+    <tr>
+      <th>Question</th>
+      <th>opt1</th>
+      <th>opt2</th>
+      <th>opt3</th>
+      <th>opt4</th>
+      <th>Correct</th>
+      <th colspan="2">Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @exams.each do |exam| %>
+      <tr>
+        <td><font size="4"><%= exam.question %></font></td>
+        <td style="color:red"><font size="4"><%= exam.option1 %></font></td>
+        <td style="color:red"><font size="4"><%= exam.option2 %></font></td>
+        <td style="color:red"><font size="4"><%= exam.option3 %></font></td>
+        <td style="color:red"><font size="4"><%= exam.option4 %></font></td>
+        <td style="color:green"><font size="4"><%= exam.correct_ans %></font></td>
+        <td><%= link_to 'Show', exam %></td>
+	 <% if current_user.admin? %>
+        <td><%= link_to 'Edit', edit_exam_path(exam) %></td>
+        <td><%= link_to 'Destroy', exam, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+	</tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+
+<br>
+<div class="row">
+<div class="col-md-6 col-md-offset-5">
+
+<% if current_user.admin? %>
+<p id="1"><%= link_to 'New Question', new_exam_path, class: "btn btn-primary session_button" %>
+<% end %>
+</div>
+</div>
+
+

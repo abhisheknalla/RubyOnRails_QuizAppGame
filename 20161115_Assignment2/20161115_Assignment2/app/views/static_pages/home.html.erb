@@ -1,0 +1,19 @@
+<% provide(:title, "Home") %>
+ <!DOCTYPE html>
+ <html>
+   <head>
+       <title><%= yield(:title) %> | Ruby on Rails Quiz App</title>
+         </head>
+					   </html>
+<div class="center jumbotron">
+  <h1>Welcome to the Quiz App</h1>
+
+    <h2>
+        This is the home page for the
+	    <a href="http://www.railstutorial.org/">Ruby on Rails</a>
+	        Quiz Application.
+		  </h2>
+		   <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+
+<%= link_to "Have an account?", login_path, class:"btn btn-lg btn-primary" %>			    </div>
+

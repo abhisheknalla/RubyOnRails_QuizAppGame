@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  quizname: MyText
+  questionid: 1
+  marks: 1
+
+two:
+  quizname: MyText
+  questionid: 1
+  marks: 1

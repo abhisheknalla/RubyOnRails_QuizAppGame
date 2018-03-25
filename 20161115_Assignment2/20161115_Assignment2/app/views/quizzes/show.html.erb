@@ -1,0 +1,38 @@
+
+<head>
+<% title @quiz.genre%>
+<link rel = "stylesheet"
+    type = "text/css"
+       href = "../../assets/stylesheets/quizzes.scss" />
+        </head>
+<p id="notice"><%= notice %></p>
+<p>
+<br>
+<h1> <strong>Name:</strong>
+  <%= @quiz.name %>
+  </h1>
+</p>
+<p>
+<h1>
+  <strong>Genre:</strong>
+  <%= @quiz.genre %></h1>
+</p>
+<div class="row">
+<div class="col-md-6 col-md-offset-5">
+<% if @quiz.id==1 %>
+<p id="1"><%= link_to('Select Sports Subgenres',{ :controller => 'subgenres', :action => 'index', :random => 'Sports'}, class: "btn btn-primary session_button") %></p>
+<% end %>
+</div>
+</div>
+<div class="row">
+<div class="col-md-6 col-md-offset-5">
+<% if @quiz.id==2 %>
+<p id="1"><%= link_to('Select Movies Subgenres',{ :controller => 'subgenres', :action => 'index', :random => 'Movies'}, class: "btn btn-primary session_button") %></p>
+<% end %>
+</div>
+</div>
+<% if current_user.admin? %>
+<%= link_to 'Edit', edit_quiz_path(@quiz) %> |
+<% end %>
+<%= link_to 'Back', quizzes_path %>
+</body>

@@ -1,0 +1,52 @@
+<%= form_with(model: board, local: true) do |form| %>
+  <% if board.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(board.errors.count, "error") %> prohibited this board from being saved:</h2>
+
+      <ul>
+      <% board.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<% if current_user.admin? %>
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_area :name, id: :board_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :score %>
+    <%= form.text_field :score, id: :board_score %>
+  </div>
+
+  <div class="field">
+    <%= form.label :quizname %>
+    <%= form.text_area :quizname, id: :board_quizname %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% else %>
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_area :name, id: :board_name, :readonly => true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :score %>
+    <%= form.text_field :score, id: :board_score , :readonly => true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :quizname %>
+    <%= form.text_area :quizname, id: :board_quizname, :readonly => true %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+<% end %>

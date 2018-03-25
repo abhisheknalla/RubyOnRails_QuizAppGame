@@ -1,0 +1,33 @@
+<head>
+<% title "New Quiz?" %>
+<link rel = "stylesheet"
+    type = "text/css"
+       href = "../../assets/stylesheets/custom.scss" />
+        </head>
+<%= form_with(model: quiz, local: true) do |form| %>
+  <% if quiz.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(quiz.errors.count, "error") %> prohibited this quiz from being saved:</h2>
+
+      <ul>
+      <% quiz.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field" ><font size="5px">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :quiz_name, class:"form-control" %>
+  </font></div>
+
+  <div class="field"><font size="5px">
+    <%= form.label :genre %>
+    <%= form.text_field :genre, id: :quiz_genre, class:"form-control" %></font>
+  </div>
+
+  <div class="actions"><font size="5px">
+    <%= form.submit %></font>
+  </div>
+<% end %>
