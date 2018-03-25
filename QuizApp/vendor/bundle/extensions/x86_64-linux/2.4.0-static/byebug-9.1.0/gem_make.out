@@ -1,0 +1,19 @@
+current directory: /home/abhi/4thsem/github/RubyOnRails_QuizAppGame/20161115_Assignment2/20161115_Assignment2/vendor/bundle/gems/byebug-9.1.0/ext/byebug
+/usr/local/bin/ruby -r ./siteconf20180325-30727-u1z1cx.rb extconf.rb
+creating Makefile
+
+current directory: /home/abhi/4thsem/github/RubyOnRails_QuizAppGame/20161115_Assignment2/20161115_Assignment2/vendor/bundle/gems/byebug-9.1.0/ext/byebug
+make "DESTDIR=" clean
+
+current directory: /home/abhi/4thsem/github/RubyOnRails_QuizAppGame/20161115_Assignment2/20161115_Assignment2/vendor/bundle/gems/byebug-9.1.0/ext/byebug
+make "DESTDIR="
+compiling breakpoint.c
+compiling byebug.c
+compiling context.c
+compiling locker.c
+compiling threads.c
+linking shared-object byebug/byebug.so
+
+current directory: /home/abhi/4thsem/github/RubyOnRails_QuizAppGame/20161115_Assignment2/20161115_Assignment2/vendor/bundle/gems/byebug-9.1.0/ext/byebug
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 byebug.so ./.gem.20180325-30727-oxupaz/byebug

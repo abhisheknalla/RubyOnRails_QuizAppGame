@@ -1,0 +1,17 @@
+Changes since 0.5.3 (2010-07-26):
+ *Add is_true/is_false for boolean columns
+ * Add is_present and is_blank for non-boolean columns
+ * Fix behavior of equals when used with boolean columns.
+
+Changes since 0.5.2 (2010-07-22):
+  * Handle nested/namespaced form_for better. Formerly, you could use
+    "form_for @search" in a view, but not "form_for [:admin, @search]"
+
+Changes since 0.5.1 (2010-07-20):
+  * Fix fallback for failed cast via to_time or to_date
+  * add :cast option for custom Wheres, allowing a where to override
+    the default cast of the incoming parameters.
+
+Changes since 0.5.0 (2010-06-08):
+  * Fix searching against relations derived from a has_many :through
+    association
